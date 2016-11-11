@@ -2,17 +2,17 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+var calc = require('./routes/calc');
 
 // routing modules
 var index = require('./routes/index');
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 
+console.log('before routes');
 // routes
-// app.use('/bios', bios);
-// app.use('/likes', bios);
+app.use('/calc', calc);
+console.log('after routes');
 
 // static files
 app.use('/', index);
