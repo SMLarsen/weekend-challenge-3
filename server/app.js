@@ -9,10 +9,8 @@ var index = require('./routes/index');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-console.log('before routes');
 // routes
 app.use('/calc', calc);
-console.log('after routes');
 
 // static files
 app.use('/', index);

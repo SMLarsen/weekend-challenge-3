@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
+var result = {};
+
 router.post('/add', function(req, res) {
-    console.log(req.body.x, req.body.y);
-    res.send(req.body.x + req.body.y);
-    console.log('Success: post /calc');
+  result.value = parseInt(req.body.x) + parseInt(req.body.y);
+  res.sendStatus(201);
+});
+
+router.get('/add', function(req, res) {
+  res.send(result);
 });
 
 
