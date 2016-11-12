@@ -2,23 +2,33 @@ var inputArray = [];
 var compRequest = {};
 var calcType = "";
 var pathString = "";
+var num = "";
+var x = 0;
+var y = 0;
 
 $(document).ready(function() {
     console.log("document ready");
 
-    $('.operator').on('click', function (event){
+    $('.input-number').on('click', function (event){
       event.preventDefault();
-      console.log(1, $(this).attr("name").toLowerCase());
-      calcType = $(this).attr("name").toLowerCase();
-      buildCompRequest(calcType);
-      putRequest();
+      console.log($(this).attr("name"));
+      num += $(this).attr("name");
+      console.log(num);
     });
 
-    $('#equal-btn').on('click', function (event){
+    $('.operator').on('click', function (event){
       event.preventDefault();
-      calcType = $(this).attr("value").toLowerCase();
-      buildCompRequest(calcType);
-      putRequest();
+      compRequest.x = num;
+      calcType = $(this).attr("name").toLowerCase();
+      compRequest.type = calcType;
+      num = 0;
+      console.log(compRequest);
+    });
+
+    $('#equals-btn').on('click', function (event){
+      event.preventDefault();
+      compRequest.y = num;
+      console.log(compRequest);
     });
 
     $('#clear-btn').on('click', function (event){
@@ -71,6 +81,10 @@ $(document).ready(function() {
     function clearInput() {
       $('#result').text("");
       $('.input-number').val("");
+      compRequest.x = 0;
+      compRequest.y = 0;
+      compRequest.type = '';
+      console.log(compRequest);
     }
 
 
