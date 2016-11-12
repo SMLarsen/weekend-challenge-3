@@ -3,29 +3,32 @@ var compRequest = {};
 var calcType = "";
 var pathString = "";
 var num = "";
+var lastResult = "";
 
 $(document).ready(function() {
     console.log("document ready");
 
     $('.input-number').on('click', function (event){
       event.preventDefault();
-      var currResult = $('#result').text();
-      if (currResult !== "") {
-        num = $(this).attr("name");
-        $('#result').text(num);
-      } else {
-        num += $(this).attr("name");
-      }
-      console.log(num);
-      // $('#result').text(num);
+      num+= $(this).attr("name");
+      $('#result').text(num);
+      lastResult = "";
     });
 
     $('.operator').on('click', function (event){
       event.preventDefault();
-      compRequest.x = num;
+      // console.log('lastResult:', lastResult, 'num:', num, 'cr:', compRequest.x);
+      if (compRequest.x === "" || compRequest.x === undefined) {
+        if (lastResult === "") {
+          compRequest.x = num;
+          num = "";
+        } else {
+          compRequest.x = lastResult;
+          lastResult = "";
+        }
+      }
       calcType = $(this).attr("name").toLowerCase();
       compRequest.type = calcType;
-      num = "";
       $('#result').text('');
     });
 
@@ -33,6 +36,10 @@ $(document).ready(function() {
       event.preventDefault();
       compRequest.y = num;
       putRequest(compRequest);
+      compRequest.x = "";
+      compRequest.y = "";
+      compRequest.type = '';
+      num = "";
     });
 
     $('#clear-btn').on('click', function (event){
@@ -70,9 +77,9 @@ $(document).ready(function() {
           url: '/calc',
           success: function(data) {
             displayResult(data);
-            console.log('result:', data.value);
-            compRequest.x = data.value;
-            num = data.value;
+            console.log('data:', data);
+            lastResult = data.value;
+            console.log('result:', result);
             console.log("Success - GET /calc/add");
           },
           error: function(){
@@ -81,8 +88,8 @@ $(document).ready(function() {
       });
     }
 
-    function displayResult(result) {
-      $('#result').text(result.value);
+    function displayResult(data) {
+      $('#result').text(data.value);
     }
 
     function clearInput() {
@@ -91,8 +98,6 @@ $(document).ready(function() {
       compRequest.x = "";
       compRequest.y = "";
       compRequest.type = '';
-      console.log(compRequest);
     }
-
 
 });
