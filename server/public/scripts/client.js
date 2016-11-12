@@ -6,7 +6,22 @@ var pathString = "";
 $(document).ready(function() {
     console.log("document ready");
 
-    $('#add-btn').on('click', function (event){
+    $('.operator').on('click', function (event){
+      event.preventDefault();
+      console.log(1, $(this).attr("name").toLowerCase());
+      calcType = $(this).attr("name").toLowerCase();
+      buildCompRequest(calcType);
+      putRequest();
+    });
+
+    $('#equal-btn').on('click', function (event){
+      event.preventDefault();
+      calcType = $(this).attr("value").toLowerCase();
+      buildCompRequest(calcType);
+      putRequest();
+    });
+
+    $('#clear-btn').on('click', function (event){
       event.preventDefault();
       calcType = $(this).attr("value").toLowerCase();
       buildCompRequest(calcType);
