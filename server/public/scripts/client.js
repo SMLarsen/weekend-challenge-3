@@ -69,7 +69,7 @@ $(document).ready(function() {
     }
 
     function clearInput() {
-      console.log("clear");
+      $('#result').text("");
       $('.input-number').val("");
     }
 
