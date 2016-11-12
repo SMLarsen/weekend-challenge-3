@@ -10,7 +10,9 @@ $(document).ready(function() {
     console.log("document ready");
 
     $('.input-number').on('click', function (event){
+      console.log('number:', $(this).attr("name"));
       event.preventDefault();
+      console.log('number:', $(this).attr("name"));
       var currResult = $('#result').text();
       if (currResult !== "") {
         num = $(this).attr("name");
@@ -18,10 +20,12 @@ $(document).ready(function() {
       } else {
         num += $(this).attr("name");
       }
+      console.log('num:', num);
     });
 
     $('.operator').on('click', function (event){
       event.preventDefault();
+      console.log('operator num:', num);
       compRequest.x = num;
       calcType = $(this).attr("name").toLowerCase();
       compRequest.type = calcType;

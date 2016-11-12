@@ -5,25 +5,25 @@ var result = {};
 
 router.post('/add', function(req, res) {
   console.log('post /add');
-  result.value = parseInt(req.body.x) + parseInt(req.body.y);
+  result.value = parseFloat(req.body.x) + parseFloat(req.body.y);
   res.sendStatus(201);
 });
 
 router.post('/minus', function(req, res) {
   console.log('post /minus');
-  result.value = parseInt(req.body.x) - parseInt(req.body.y);
+  result.value = parseFloat(req.body.x) - parseFloat(req.body.y);
   res.sendStatus(201);
 });
 
 router.post('/times', function(req, res) {
   console.log('post /times');
-  result.value = parseInt(req.body.x) * parseInt(req.body.y);
+  result.value = parseFloat(req.body.x) * parseFloat(req.body.y);
   res.sendStatus(201);
 });
 
 router.post('/divide', function(req, res) {
   console.log('post /divide');
-  result.value = parseInt(req.body.x) / parseInt(req.body.y);
+  result.value = parseFloat(req.body.x) / parseFloat(req.body.y);
   res.sendStatus(201);
 });
 
