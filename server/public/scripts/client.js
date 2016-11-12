@@ -3,33 +3,30 @@ var compRequest = {};
 var calcType = "";
 var pathString = "";
 var num = "";
-var x;
-var y;
 
 $(document).ready(function() {
     console.log("document ready");
 
     $('.input-number').on('click', function (event){
-      console.log('number:', $(this).attr("name"));
       event.preventDefault();
-      console.log('number:', $(this).attr("name"));
       var currResult = $('#result').text();
       if (currResult !== "") {
         num = $(this).attr("name");
-        $('#result').text("");
+        $('#result').text(num);
       } else {
         num += $(this).attr("name");
       }
-      console.log('num:', num);
+      console.log(num);
+      // $('#result').text(num);
     });
 
     $('.operator').on('click', function (event){
       event.preventDefault();
-      console.log('operator num:', num);
       compRequest.x = num;
       calcType = $(this).attr("name").toLowerCase();
       compRequest.type = calcType;
       num = "";
+      $('#result').text('');
     });
 
     $('#equals-btn').on('click', function (event){

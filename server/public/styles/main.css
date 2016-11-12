@@ -1,7 +1,21 @@
-.input-number, .operator, #equals-btn {
+.input-number, .operator, #clear-btn {
   font-weight: bold;
   font-size: 2em;
   height: 90px;
+}
+
+#add-btn {
+  height: 180px;
+}
+
+#clear-btn {
+  background-color: 	#6495ED;
+}
+
+#equals-btn {
+  font-weight: bold;
+  font-size: 2em;
+  height: 270px;
 }
 
 #result {
