@@ -13,7 +13,23 @@ router.get('/', function(req, res) {
 });
 
 function calculator(req) {
-  result.value = parseInt(req.body.x) + parseInt(req.body.y);
+  console.log(req.body.type);
+  switch (req.body.type) {
+    case 'add':
+      result.value = parseInt(req.body.x) + parseInt(req.body.y);
+      break;
+    case 'minus':
+      result.value = parseInt(req.body.x) - parseInt(req.body.y);
+      break;
+    case 'times':
+      result.value = parseInt(req.body.x) * parseInt(req.body.y);
+      break;
+    case 'divide':
+      result.value = parseInt(req.body.x) / parseInt(req.body.y);
+      break;
+    default:
+      console.log('Invalid operator');
+  }
 }
 
 
