@@ -3,17 +3,23 @@ var compRequest = {};
 var calcType = "";
 var pathString = "";
 var num = "";
-var x = 0;
-var y = 0;
+var x;
+var y;
 
 $(document).ready(function() {
     console.log("document ready");
 
     $('.input-number').on('click', function (event){
       event.preventDefault();
-      console.log($(this).attr("name"));
-      num += $(this).attr("name");
-      console.log(num);
+      console.log('after', $('#result').text());
+      var currResult = $('#result').text();
+      if (currResult !== "") {
+        num = $(this).attr("name");
+        $('#result').text("");
+      } else {
+        num += $(this).attr("name");
+        console.log(num);
+      }
     });
 
     $('.operator').on('click', function (event){
@@ -21,7 +27,7 @@ $(document).ready(function() {
       compRequest.x = num;
       calcType = $(this).attr("name").toLowerCase();
       compRequest.type = calcType;
-      num = 0;
+      num = "";
       console.log(compRequest);
     });
 
@@ -29,6 +35,7 @@ $(document).ready(function() {
       event.preventDefault();
       compRequest.y = num;
       console.log(compRequest);
+      putRequest(compRequest);
     });
 
     $('#clear-btn').on('click', function (event){
@@ -66,6 +73,10 @@ $(document).ready(function() {
           url: '/calc',
           success: function(data) {
             displayResult(data);
+            console.log('result', data.value);
+            compRequest.x = data.value;
+            num = data.value;
+            console.log(compRequest);
             console.log("Success - GET /calc/add");
           },
           error: function(){
@@ -80,9 +91,9 @@ $(document).ready(function() {
 
     function clearInput() {
       $('#result').text("");
-      $('.input-number').val("");
-      compRequest.x = 0;
-      compRequest.y = 0;
+      num = "";
+      compRequest.x = "";
+      compRequest.y = "";
       compRequest.type = '';
       console.log(compRequest);
     }

@@ -13,7 +13,6 @@ router.get('/', function(req, res) {
 });
 
 function calculator(req) {
-  console.log(req.body.type);
   switch (req.body.type) {
     case 'add':
       result.value = parseInt(req.body.x) + parseInt(req.body.y);
