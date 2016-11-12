@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="../assets/vendors/jquery.min.js"></script>
     <script type="text/javascript" src="./scripts/client.js"></script>
+    <link rel="stylesheet" href="./assets/vendors/bootstrap.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <title>Weekend 3 Challenge</title>
 </head>
@@ -12,30 +13,36 @@
 <body>
   <h1>Calculator</h1>
 
-  <section>
+  <section class="container">
     <h2>Result: <span id="result"></span></h2>
   </section>
 
   <section id="calc-container">
     <form class="calc-form" action="index.html" method="post">
-      <h2>Enter numbers:</h2>
-
-       <input class="input-number" type="button" name="1" value="1">
-       <input class="input-number" type="button" name="2" value="2">
-       <input class="input-number" type="button" name="3" value="3">
-       <input class="operator" id="add-btn" type="button" name="add" value="&plus;"><br>
-       <input class="input-number" type="button" name="4" value="4">
-       <input class="input-number" type="button" name="5" value="5">
-       <input class="input-number" type="button" name="6" value="6">
-       <input class="operator" id="minus-btn" type="button" name="minus" value="&minus;"><br>
-       <input class="input-number" type="button" name="7" value="7">
-       <input class="input-number" type="button" name="8" value="8">
-       <input class="input-number" type="button" name="9" value="9">
-       <input class="operator" id="times-btn" type="button" name="times" value="&times;"><br>
-       <input class="input-number" type="button" name="0" value="0">
-      <input class="operator" id="divide-btn" type="button" name="divide" value="&divide;"><br>
-      <input id="equals-btn" type="button" name="equals" value="&equals;">
-      <input id="clear-btn" type="button" name="clear" value="C">
+      <div class="row">
+        <input class="btn btn-default btn-lg col-md-1 col-md-offset-3 input-number" type="button" name="1" value="1">
+        <input class="btn btn-default btn-lg col-md-1 input-number" type="button" name="2" value="2">
+        <input class="btn btn-default btn-lg col-md-1 input-number" type="button" name="3" value="3">
+        <input class="btn btn-default btn-lg col-md-1 operator" id="times-btn" type="button" name="times" value="&times;"><br>
+      </div>
+      <div class="row">
+        <input class="btn btn-default btn-lg col-md-1 col-md-offset-3 input-number" type="button" name="4" value="4">
+        <input class="btn btn-default btn-lg col-md-1 input-number" type="button" name="5" value="5">
+        <input class="btn btn-default btn-lg col-md-1 input-number" type="button" name="6" value="6">
+        <input class="btn btn-default btn-lg col-md-1 operator" id="minus-btn" type="button" name="minus" value="&minus;"><br>
+      </div>
+      <div class="row">
+        <input class="btn btn-default btn-lg col-md-1 col-md-offset-3 input-number" type="button" name="7" value="7">
+        <input class="btn btn-default btn-lg col-md-1 input-number" type="button" name="8" value="8">
+        <input class="btn btn-default btn-lg col-md-1 input-number" type="button" name="9" value="9">
+        <input class="btn btn-default btn-lg col-md-1 operator" id="add-btn" type="button" name="add" value="&plus;"><br>
+      </div>
+      <div class="row">
+        <input class="btn btn-default btn-lg col-md-1 col-md-offset-3 input-number" type="button" name="0" value="0">
+        <input class="btn btn-default btn-lg col-md-1 input-number" type="button" name="." value="&middot;">
+        <input class="btn btn-default btn-lg col-md-1 input-number" id="equals-btn" type="button" name="equals" value="&equals;">
+        <input class="btn btn-default btn-lg col-md-1 operator" id="divide-btn" type="button" name="divide" value="&divide;"><br>
+      </div>
     </form>
   </section>
 </body>
