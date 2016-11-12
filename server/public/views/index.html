@@ -11,53 +11,58 @@
 </head>
 
 <body>
-  <h1>Calculator</h1>
+  <div id="top-container">
+    <section class="container col-md-4">
+      <h1>Calculator</h1>
+    </section>
 
-  <section id="calc-container container ">
-    <form class="calc-form" action="index.html" method="post">
-      <div class="row">
-        <p class="col-md-4 col-md-offset-4" id="result"></p>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3 col-md-offset-4">
-          <div class="row">
-            <input class="btn btn-space btn-default col-md-4 operator" id="times-btn" type="button" name="times" value="&times;">
-            <input class="btn btn-space btn-default col-md-4 operator" id="divide-btn" type="button" name="divide" value="&divide;">
-            <input class="btn btn-space btn-default col-md-4 operator" id="minus-btn" type="button" name="minus" value="&minus;">
-          </div>
-          <div class="row">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="1" value="1">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="2" value="2">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="3" value="3">
-          </div>
+    <section id="calc-container container col-md-4">
+      <form class="calc-form" action="index.html" method="post">
+        <div class="row">
+          <p class="col-md-4" id="result"></p>
         </div>
-        <input class="btn btn-space btn-default col-md-1 operator" id="add-btn" type="button" name="add" value="&plus;">
-      </div>
 
-      <div class="row">
-        <div class="col-md-3 col-md-offset-4">
-          <div class="row">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="4" value="4">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="5" value="5">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="6" value="6">
+        <div class="row">
+          <div class="col-md-3 col-md-offset-4">
+            <div class="row">
+              <input class="btn btn-space btn-default col-md-4 operator" id="times-btn" type="button" name="times" value="&times;">
+              <input class="btn btn-space btn-default col-md-4 operator" id="divide-btn" type="button" name="divide" value="&divide;">
+              <input class="btn btn-space btn-default col-md-4 operator" id="minus-btn" type="button" name="minus" value="&minus;">
+            </div>
+            <div class="row">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="1" value="1">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="2" value="2">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="3" value="3">
+            </div>
           </div>
-          <div class="row">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="7" value="7">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="8" value="8">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="9" value="9">
-          </div>
-          <div class="row">
-            <input class="btn btn-space btn-warning col-md-4" id="clear-btn" type="button" name="clear" value="C">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="0" value="0">
-            <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="." value="&middot;">
-          </div>
+          <input class="btn btn-space btn-default col-md-1 operator" id="add-btn" type="button" name="add" value="&plus;">
         </div>
-        <input class="btn btn-space btn-primary col-md-1" id="equals-btn" type="button" name="equals" value="&equals;">
-      </div>
 
-    </form>
-  </section>
+        <div class="row">
+          <div class="col-md-3 col-md-offset-4">
+            <div class="row">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="4" value="4">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="5" value="5">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="6" value="6">
+            </div>
+            <div class="row">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="7" value="7">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="8" value="8">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="9" value="9">
+            </div>
+            <div class="row">
+              <input class="btn btn-space btn-warning col-md-4" id="clear-btn" type="button" name="clear" value="C">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="0" value="0">
+              <input class="btn btn-space btn-default col-md-4 input-number" type="button" name="." value="&middot;">
+            </div>
+          </div>
+          <input class="btn btn-space btn-primary col-md-1" id="equals-btn" type="button" name="equals" value="&equals;">
+        </div>
+
+      </form>
+    </section>
+
+  </div>
 </body>
 
 </html>

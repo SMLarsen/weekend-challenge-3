@@ -2,11 +2,21 @@ body {
   background-color: 	#2F4F4F;
 }
 
+#top-container {
+  width: 90%;
+  margin: 1% auto;
+  padding: 2%;
+}
+
+h1 {
+    color: white;
+}
+
 .input-number, .operator, #clear-btn {
-  width: 30%;
+  width: 29%;
   font-weight: bold;
   font-size: 2em;
-  height: 90px;
+  height: 70px;
 }
 
 .btn-space {
@@ -14,14 +24,15 @@ body {
 }
 
 #add-btn {
-  height: 190px;
+  height: 150px;
   width: 8%;
 }
 
 #equals-btn {
   font-weight: bold;
   font-size: 2em;
-  height: 290px;
+  width: 8%;
+  height: 230px;
 }
 
 #result {
