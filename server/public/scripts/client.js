@@ -10,7 +10,7 @@ $(document).ready(function() {
       event.preventDefault();
       calcType = $(this).attr("value").toLowerCase();
       buildCompRequest(calcType);
-      putAddRequest();
+      putRequest();
     });
 
     function buildCompRequest(calcType) {
@@ -22,14 +22,13 @@ $(document).ready(function() {
       console.log(compRequest);
     }
 
-    function putAddRequest() {
-      pathString = '/calc/' + calcType;
+    function putRequest() {
       $.ajax({
           type: 'POST',
-          url: pathString,
+          url: '/calc',
           data: compRequest,
           success: function(data) {
-            putGetRequest();
+            getResponse();
             console.log("Success - POST /calc/add");
           },
           error: function(){
@@ -38,11 +37,10 @@ $(document).ready(function() {
       });
     }
 
-        function putGetRequest() {
-          pathString = '/calc/' + calcType;
+        function getResponse() {
           $.ajax({
               type: 'GET',
-              url: pathString,
+              url: '/calc',
               success: function(data) {
                 displayResult(data);
                 console.log("Success - GET /calc/add");

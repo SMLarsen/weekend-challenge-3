@@ -3,14 +3,18 @@ var router = express.Router();
 
 var result = {};
 
-router.post('/add', function(req, res) {
-  result.value = parseInt(req.body.x) + parseInt(req.body.y);
+router.post('/', function(req, res) {
+  calculator(req);
   res.sendStatus(201);
 });
 
-router.get('/add', function(req, res) {
+router.get('/', function(req, res) {
   res.send(result);
 });
+
+function calculator(req) {
+  result.value = parseInt(req.body.x) + parseInt(req.body.y);
+}
 
 
 module.exports = router;
