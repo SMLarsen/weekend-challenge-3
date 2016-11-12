@@ -23,9 +23,7 @@ $(document).ready(function() {
 
     $('#clear-btn').on('click', function (event){
       event.preventDefault();
-      calcType = $(this).attr("value").toLowerCase();
-      buildCompRequest(calcType);
-      putRequest();
+      clearInput();
     });
 
     function buildCompRequest(calcType) {
@@ -52,22 +50,28 @@ $(document).ready(function() {
       });
     }
 
-        function getResponse() {
-          $.ajax({
-              type: 'GET',
-              url: '/calc',
-              success: function(data) {
-                displayResult(data);
-                console.log("Success - GET /calc/add");
-              },
-              error: function(){
-                console.log("Error - GET /calc/add");
-              }
-          });
-        }
+    function getResponse() {
+      $.ajax({
+          type: 'GET',
+          url: '/calc',
+          success: function(data) {
+            displayResult(data);
+            console.log("Success - GET /calc/add");
+          },
+          error: function(){
+            console.log("Error - GET /calc/add");
+          }
+      });
+    }
 
     function displayResult(result) {
       $('#result').text(result.value);
     }
+
+    function clearInput() {
+      console.log("clear");
+      $('.input-number').val("");
+    }
+
 
 });
