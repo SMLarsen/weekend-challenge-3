@@ -3,33 +3,33 @@ var router = express.Router();
 
 var result = {};
 
-router.post('/', function(req, res) {
-  calculator(req);
+router.post('/add', function(req, res) {
+  console.log('post /add');
+  result.value = parseInt(req.body.x) + parseInt(req.body.y);
+  res.sendStatus(201);
+});
+
+router.post('/minus', function(req, res) {
+  console.log('post /minus');
+  result.value = parseInt(req.body.x) - parseInt(req.body.y);
+  res.sendStatus(201);
+});
+
+router.post('/times', function(req, res) {
+  console.log('post /times');
+  result.value = parseInt(req.body.x) * parseInt(req.body.y);
+  res.sendStatus(201);
+});
+
+router.post('/divide', function(req, res) {
+  console.log('post /divide');
+  result.value = parseInt(req.body.x) / parseInt(req.body.y);
   res.sendStatus(201);
 });
 
 router.get('/', function(req, res) {
+  console.log('get /');
   res.send(result);
 });
-
-function calculator(req) {
-  switch (req.body.type) {
-    case 'add':
-      result.value = parseInt(req.body.x) + parseInt(req.body.y);
-      break;
-    case 'minus':
-      result.value = parseInt(req.body.x) - parseInt(req.body.y);
-      break;
-    case 'times':
-      result.value = parseInt(req.body.x) * parseInt(req.body.y);
-      break;
-    case 'divide':
-      result.value = parseInt(req.body.x) / parseInt(req.body.y);
-      break;
-    default:
-      console.log('Invalid operator');
-  }
-}
-
 
 module.exports = router;

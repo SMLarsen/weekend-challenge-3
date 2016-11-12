@@ -1,4 +1,4 @@
-.input-number, .operator {
+.input-number, .operator, #equals-btn {
   font-weight: bold;
   font-size: 2em;
   height: 90px;
